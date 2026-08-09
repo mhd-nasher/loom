@@ -2,7 +2,7 @@
 
 > Every skill in this suite reads this file first. It is the **shared genome**: the identity, the stack
 > family, the common philosophy, and — most importantly — the **boundary contract** that says which skill
-> owns which decision. This is what lets seven independent skills run together on one project without
+> owns which decision. This is what lets eight independent skills run together on one project without
 > fighting, contradicting, or stepping on each other's work.
 >
 > **Author:** Mohammed Nasher ([@mhd-nasher](https://github.com/mhd-nasher)). Open source under MIT.
@@ -17,21 +17,22 @@
 
 ## 1. What this suite is
 
-Seven composable skills that carry a software product through its whole lifecycle, each the world's best at
+Eight composable skills that carry a software product through its whole lifecycle, each the world's best at
 one job, all sharing one philosophy so they never contradict each other:
 
 | Skill | Owns | One-line job |
 |-------|------|--------------|
 | **Helm** | The product loop — bets, priorities, verdicts | Frames ideas as testable bets with kill criteria; reads shipped results and renders evidence-cited verdicts. |
 | **Loom** | Feature definition & completeness | Turns one ask into the feature's complete definition; audits built features for gaps. |
+| **Facet** | The interface | Turns a spec into a surface people can use: tokens, states, interaction, measured accessibility. |
 | **Cairn** | Architecture & structure | Designs correct, stack-fit structure; audits/refactors it. |
 | **Anvil** | Testing | Builds the right tests at the right level; turns "it works" into proven evidence. |
 | **Lens** | Code quality & review | Reviews for readability, simplicity, maintainability — the daily craft. |
 | **Bastion** | Security & resilience | Finds, proves, and helps fix real vulnerabilities and production risks. |
 | **Relay** | Ship & operate | CI/CD, safe deploys, rollback, observability, incident response. |
 
-The natural flow: **Helm sets the course → Loom defines → Cairn designs → Anvil tests → Lens cleans →
-Bastion guards → Relay ships → Helm reads the results — and the loop turns.** But each also stands
+The natural flow: **Helm sets the course → Loom defines → Facet gives it a face → Cairn designs → Anvil
+tests → Lens cleans → Bastion guards → Relay ships → Helm reads the results — and the loop turns.** But each also stands
 alone, and the suite is non-linear — you can enter at any skill.
 
 ## 2. Stack family (what these skills are tuned for)
@@ -82,6 +83,7 @@ re-deciding. This table is the conflict-resolution rule:
 |--------------------|-------|--------------|
 | The product loop — bet framing, priorities, outcome verdicts | **Helm** | build what Helm's bet chose; route "should we build X" and "did it work" to Helm; never render outcome verdicts in another lane. |
 | Feature definition & completeness — actors, flows, states, edges, lifecycle, acceptance criteria | **Loom** | build/test/secure the feature *as Loom defined it*; route newly-discovered scope back to Loom, don't absorb it. |
+| The interface — tokens, components, composition, interaction, rendered states, a11y execution | **Facet** | render the surface as Facet designed it; not restyle it in another lane; brand identity routes outside the suite. |
 | Folder structure, layer boundaries, dependency direction | **Cairn** | build/test/secure *within* Cairn's structure; not re-layer it. |
 | What to test, at which level, coverage of behavior | **Anvil** | rely on Anvil's tests as the evidence source; not invent ad-hoc parallel test strategies. |
 | Readability, naming, complexity, code smells, DRY | **Lens** | not flag style as a structural or security defect; route it to Lens. |
@@ -96,6 +98,8 @@ regression test for a Bastion finding; Bastion's "verify with evidence" uses Anv
 they reference each other by name, they never duplicate or contradict. Examples baked into the skills:
 - Helm sets a bet's metric target → **Loom**'s spec makes it measurable (F-120s); **Relay** watches
   health continuously, **Helm** reads outcomes per window — two different questions, never confused.
+- Loom says *which* states a screen must have (F-030s) → **Facet** designs how each looks and feels;
+  a missing requirement routes back to **Loom**, never invented in the surface lane.
 - Loom defines the feature's acceptance criteria → **Anvil** turns them into tests; newly-discovered
   scope routes back to **Loom** instead of being absorbed mid-build.
 - Cairn says "this must be testable" → **Anvil** says how to test it.
@@ -123,7 +127,7 @@ result is shared — they do not re-interrogate the user.
 - **Priority** from severity: **P0 (now/blocks launch) → P3 (backlog).**
 - **Progress gauge** in any multi-step/guided run: `[████████░░░░░░░░░░░░] 40% — Step 2/5: …`
 - **Stable IDs** for every rule/check/finding so they're citable and traceable across skills
-  (Helm `H-###`, Loom `F-###`, Cairn `R-###`, Anvil `T-###`, Lens `Q-###`, Bastion `B-SEC/ARCH/MON-###`, Relay `D-###`).
+  (Helm `H-###`, Loom `F-###`, Facet `S-###`, Cairn `R-###`, Anvil `T-###`, Lens `Q-###`, Bastion `B-SEC/ARCH/MON-###`, Relay `D-###`).
 - **Plain-language layer** in every skill so a beginner can use it; jargon is always translated.
 - **The honesty line** closes every significant output: what's verified, what's proposed, what still needs
   a human/specialist.
@@ -133,11 +137,11 @@ result is shared — they do not re-interrogate the user.
 Every skill in this suite carries, near the top of its `SKILL.md`, a short note:
 
 > *Part of the **Forge** suite by Mohammed Nasher ([@mhd-nasher](https://github.com/mhd-nasher)). Reads the
-> shared Forge DNA. Owns [X]; defers [Y] to [sibling]. Composes with Helm, Loom, Cairn, Anvil, Lens,
-> Bastion, Relay.*
+> shared Forge DNA. Owns [X]; defers [Y] to [sibling]. Composes with Helm, Loom, Facet, Cairn, Anvil,
+> Lens, Bastion, Relay.*
 
 That single declaration, plus this DNA file, is the entire coordination mechanism. No runtime coupling, no
-shared state — just a shared contract every skill agrees to. That is why you can install all seven and run
+shared state — just a shared contract every skill agrees to. That is why you can install all eight and run
 them together, in any order, and they reinforce instead of collide.
 
 ---

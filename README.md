@@ -10,7 +10,7 @@
 [![Made by Mohammed Nasher](https://img.shields.io/badge/made%20by-Mohammed%20Nasher-1f6feb)](https://github.com/mhd-nasher)
 [![AI Skill](https://img.shields.io/badge/AI-skill-8957e5)](#)
 [![Part of: Forge](https://img.shields.io/badge/part%20of-Forge%20suite-0b8043)](FORGE_DNA.md)
-[![Siblings: Helm · Cairn · Anvil · Lens · Bastion · Relay](https://img.shields.io/badge/siblings-Helm%20·%20Cairn%20·%20Anvil%20·%20Lens%20·%20Bastion%20·%20Relay-555)](FORGE_DNA.md)
+[![Siblings: Helm · Facet · Cairn · Anvil · Lens · Bastion · Relay](https://img.shields.io/badge/siblings-Helm%20·%20Facet%20·%20Cairn%20·%20Anvil%20·%20Lens%20·%20Bastion%20·%20Relay-555)](FORGE_DNA.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
 [![GitHub stars](https://img.shields.io/github/stars/mhd-nasher/loom?style=social)](https://github.com/mhd-nasher/loom)
 
@@ -180,15 +180,16 @@ choices are proposed, never silently made.
 |-------|------|---------------------|
 | 🧵 **Loom** | Feature definition & completeness | This repo. |
 | 🧭 [Helm](https://github.com/mhd-nasher/helm) | The product loop — bets, priorities, verdicts | Helm's winning bet is Loom's ask; Loom's instrumentation (F-120s) makes Helm's metric measurable. |
+| 💎 [Facet](https://github.com/mhd-nasher/facet) | The interface | Loom says *which* states a screen must have (F-030s); Facet designs how they look and feel (`S-###`). |
 | 🗿 [Cairn](https://github.com/mhd-nasher/cairn) | Architecture & structure | Loom's spec is Cairn's input; structure questions route to Cairn (`R-###`). |
 | 🔨 [Anvil](https://github.com/mhd-nasher/anvil) | Testing | Loom's acceptance criteria are Anvil's starting line (`T-002`); Loom never writes a test. |
 | 🔍 [Lens](https://github.com/mhd-nasher/lens) | Code quality & review | Quality smells noticed mid-weave park to Lens (`Q-###`). |
 | 🛡️ [Bastion](https://github.com/mhd-nasher/bastion) | Security & resilience | Loom enumerates the abuse surface; Bastion owns severity and verdicts (`B-###`). |
 | 🚀 [Relay](https://github.com/mhd-nasher/relay) | Ship & operate | Loom defines what rollout must handle; Relay owns the mechanics (`D-###`). |
 
-The natural flow: **Helm sets the course → Loom defines → Cairn designs → Anvil tests → Lens cleans →
-Bastion guards → Relay ships → Helm reads the results — and the loop turns.** Non-linear by design —
-enter at any skill.
+The natural flow: **Helm sets the course → Loom defines → Facet gives it a face → Cairn designs → Anvil
+tests → Lens cleans → Bastion guards → Relay ships → Helm reads the results — and the loop turns.**
+Non-linear by design — enter at any skill, or invoke **`forge`** and let the conductor run the chain.
 
 ## Contributing
 
