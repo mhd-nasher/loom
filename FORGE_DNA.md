@@ -131,6 +131,14 @@ result is shared — they do not re-interrogate the user.
 - **Plain-language layer** in every skill so a beginner can use it; jargon is always translated.
 - **The honesty line** closes every significant output: what's verified, what's proposed, what still needs
   a human/specialist.
+- **Project memory (where artifacts live).** On a multi-session project the suite writes into the
+  project's brain — a `_PROJECT_CONTROL/` folder planted by [Ghars](https://github.com/Rabwatech/ghars)
+  — so discovery runs **once** and nothing is forgotten between sessions: the shared Step 0 →
+  `07_TECH_ARCHITECTURE/discovery.md`, feature definitions → `06_PRODUCT_DEFINITION/`, structure →
+  `07_TECH_ARCHITECTURE/architecture.md`, bets → `11_PRODUCT_LOOP/BET_LEDGER.md`, delivery findings →
+  `08_DELIVERY_EXECUTION/`, and **every member's Parked & Routed rows → `00_CURRENT_STATE/OPEN_LOOPS.md`,
+  the project's single register of unresolved threads.** No brain (a throwaway or single-session job) →
+  artifacts default to the project root and the suite says so; it never forces the ceremony on a script.
 
 ## 7. How a skill declares its suite membership
 
