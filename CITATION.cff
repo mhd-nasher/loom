@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+title: "Loom — the feature-completeness skill of the Forge suite"
+message: "If you use Loom, please cite it."
+type: software
+authors:
+  - given-names: Mohammed
+    family-names: Nasher
+    alias: mhd-nasher
+repository-code: "https://github.com/mhd-nasher/loom"
+url: "https://github.com/mhd-nasher"
+abstract: >
+  Loom is a self-contained, stack-aware feature-completeness engine for AI coding assistants. It
+  takes one vague feature ask and returns the whole fabric — every actor, user flow, state, edge
+  case, data-lifecycle moment, and Given/When/Then acceptance criterion — and it audits
+  already-built features for the forgotten details that burn in production. Every dimension the
+  stack profile applies is either specified or explicitly cut with a stated reason (the One-Weave
+  Law): one feature per run, discoveries outside the goal are parked and routed to their owning
+  sibling — with a strict-return subagent handoff — and the moment the weave is complete Loom
+  declares done and stops. Findings carry stable F-### IDs. Firebase/Flutter/Next/Stripe is the
+  flagship profile; websites, mobile apps, and APIs/backend systems are all covered. Part of the
+  Forge suite: it routes structure to Cairn, tests to Anvil, quality to Lens, security severity
+  to Bastion, and rollout mechanics to Relay.
+keywords:
+  - feature-spec
+  - requirements
+  - user-flows
+  - edge-cases
+  - completeness
+  - product-engineering
+  - forge-suite
+  - ai-skill
+  - claude-code
+  - developer-tools
+license: MIT
+version: 1.0.0
+date-released: "2026-08-09"

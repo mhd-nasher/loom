@@ -1,0 +1,31 @@
+# .gitignore for Loom
+
+# Scratch / working space
+.work/
+scratch/
+
+# Python cache (if scripts are run)
+__pycache__/
+*.pyc
+*.pyo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Build artifacts
+*.egg-info/
+dist/
+build/
+
+# Local spec/audit output (never commit a client's feature specs or gap reports)
+*.spec.local.md
+loom-gap-report-*.md
+loom-spec-*.md

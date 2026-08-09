@@ -1,0 +1,35 @@
+{
+  "skill_name": "loom",
+  "description": "Triggers for fully defining or speccing a feature, mapping user flows, uncovering forgotten states/edge cases/permissions/lifecycle details, or auditing a built feature for gaps at any experience level",
+  "queries": [
+    { "id": 1, "query": "Spec this booking feature properly — what am I forgetting?", "should_trigger": true },
+    { "id": 2, "query": "Map the full user flow for checkout.", "should_trigger": true },
+    { "id": 3, "query": "What edge cases does this upload feature have?", "should_trigger": true },
+    { "id": 4, "query": "Audit my listing feature — is it complete?", "should_trigger": true },
+    { "id": 5, "query": "What states does this screen need?", "should_trigger": true },
+    { "id": 6, "query": "What happens if the user cancels halfway through payment?", "should_trigger": true },
+    { "id": 7, "query": "I built the delete-account feature — did I miss anything?", "should_trigger": true },
+    { "id": 8, "query": "Turn this vague feature request into a real spec.", "should_trigger": true },
+    { "id": 9, "query": "I want to add reviews to my app but I don't know what that involves.", "should_trigger": true },
+    { "id": 10, "query": "Write the acceptance criteria for the invite-a-friend feature.", "should_trigger": true },
+    { "id": 11, "query": "What permissions and roles does this feature need?", "should_trigger": true },
+    { "id": 12, "query": "Define the contract for our new partner webhook endpoint.", "should_trigger": true },
+    { "id": 13, "query": "What should happen when two people book the same slot at once?", "should_trigger": true },
+    { "id": 14, "query": "List every notification this feature should send.", "should_trigger": true },
+    { "id": 15, "query": "We keep getting burned by small details after launch — check this feature before we build it.", "should_trigger": true },
+    { "id": 16, "query": "وش نسيت في ميزة الحجز؟", "should_trigger": true },
+    { "id": 17, "query": "حلل الميزة هذي وقولي وش ناقص", "should_trigger": true },
+    { "id": 18, "query": "اعطني user flow كامل لميزة الدفع", "should_trigger": true },
+    { "id": 19, "query": "أبي ميزة رفع صور بس ما أعرف وش تحتاج بالضبط", "should_trigger": true },
+
+    { "id": 20, "query": "Review my architecture — is the structure of my app right?", "should_trigger": false },
+    { "id": 21, "query": "Write tests for my checkout flow.", "should_trigger": false },
+    { "id": 22, "query": "Is my app secure? Find vulnerabilities.", "should_trigger": false },
+    { "id": 23, "query": "Set up CI/CD for my Firebase project.", "should_trigger": false },
+    { "id": 24, "query": "Clean up this messy function, it's hard to read.", "should_trigger": false },
+    { "id": 25, "query": "How should I organize my folders and layers?", "should_trigger": false },
+    { "id": 26, "query": "My deploy broke production, help me roll back.", "should_trigger": false },
+    { "id": 27, "query": "Translate this paragraph to Arabic.", "should_trigger": false },
+    { "id": 28, "query": "Fix this null-pointer bug in my Dart code.", "should_trigger": false }
+  ]
+}

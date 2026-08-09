@@ -1,0 +1,168 @@
+{
+  "skill_name": "loom",
+  "notes": "Loom has two equal-and-opposite failure modes, and these evals guard both. Failure mode 1 — THE MISS: the forgotten detail ships (no race guard at the commit point, no delete cascade, no payment-failure flow) and burns in production; must_find cases prove Loom catches the classes of detail people forget, citing stable F-### ids. Failure mode 2 — THE INVENTED REQUIREMENT / THE TANGENT: Loom demands enterprise ceremony from a weekend tool, wanders into a sibling's lane, or keeps selling work after the weave is done; must_not cases prove it cuts dimensions aloud instead of raising them, parks-and-routes instead of adjudicating, and stops at done. boundary cases prove the routing edge specifically: structure to Cairn, severity to Bastion, tests to Anvil — named, never re-decided. Grading: a must_find passes when the expectations are met with the expected_ids cited (equivalent neighboring ids in the same range are acceptable); a must_not fails if any forbidden behavior appears; a boundary passes only when the finding is routed by name AND Loom does not produce the sibling's deliverable itself. Suppressions must state their reason — a correct cut with no reason grades Partial.",
+  "evals": [
+    {
+      "id": 1,
+      "type": "must_find",
+      "stack": "firebase",
+      "prompt": "أبي ميزة حجز — العميل يختار موعد عند مقدم الخدمة ويدفع. سويلي spec كامل.",
+      "expected_ids": ["F-001", "F-010", "F-021", "F-022", "F-024", "F-030", "F-060", "F-062", "F-063", "F-070", "F-072", "F-102"],
+      "expectations": [
+        "Produces a feature card first: one goal, out-of-scope list (F-001/F-002)",
+        "Catches the double-booking race and demands a guarded commit (F-060/F-063)",
+        "Catches double-tap/double-charge and specifies idempotency (F-062)",
+        "Specs the counterparty's moves — provider cancels after payment (F-024) — with refund policy marked ⚠ human-approve",
+        "Specs payment failure as a first-class flow, not an afterthought (F-072)",
+        "Assigns timezones to slot display (F-102)",
+        "Ends with Given/When/Then criteria, a Parked & Routed table, the honesty line — and stops"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "must_find",
+      "stack": "firebase",
+      "prompt": "Audit this delete-listing feature I built.",
+      "code": "Future<void> deleteListing(String id) async {\n  await FirebaseFirestore.instance.collection('listings').doc(id).delete();\n  Navigator.pop(context);\n  showSnack('Deleted');\n}",
+      "expected_ids": ["F-041", "F-042", "F-043", "F-034"],
+      "expectations": [
+        "Flags hard delete with no soft-delete/undo decision as a gap (F-041), CONFIRMED with the code cited",
+        "Flags missing cascade handling — bookings/reviews of the listing orphaned (F-042)",
+        "Asks what counterparties still see after deletion (F-043)",
+        "Flags no error state — the await can fail and the UI says Deleted anyway (F-034)",
+        "Notes the deletion policy is a human-approved decision, not a default",
+        "Delivers a gap report with priorities and confidence labels, then stops"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "must_find",
+      "stack": "any",
+      "prompt": "Add a partner webhook endpoint that fires when an order ships. Spec it.",
+      "expected_ids": ["F-150", "F-152", "F-153", "F-155", "F-156"],
+      "expectations": [
+        "Writes the contract before any handler talk (F-150)",
+        "Specifies delivery semantics: retry schedule, timeout, at-least-once with id-dedupe (F-156/F-153)",
+        "Designs the error vocabulary and retryability signaling (F-152)",
+        "Publishes rate limits as part of the contract (F-155)",
+        "SUPPRESSES UI-state dimensions with the profile's stated reason — no screens exist",
+        "Routes signature/secret handling to Bastion by name"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "must_find",
+      "stack": "web",
+      "prompt": "Spec email notifications for when a buyer receives an offer.",
+      "expected_ids": ["F-080", "F-081", "F-082", "F-083", "F-085"],
+      "expectations": [
+        "Tables event → receiver → channel rather than prose (F-080)",
+        "Chooses timing/batching — ten offers in a minute is not ten emails (F-081)",
+        "Defines opt-out boundaries and what stays non-silenceable (F-082)",
+        "Specs where the email's link lands, including when the offer is gone (F-083)",
+        "Handles bounced delivery with a fallback or in-app record (F-085)"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "must_find",
+      "stack": "firebase",
+      "prompt": "Users can edit their listing from the app. What am I missing?",
+      "expected_ids": ["F-061", "F-062", "F-064", "F-032", "F-036"],
+      "expectations": [
+        "Catches the two-devices-same-account case and demands a policy (F-061)",
+        "Catches double-tap save / retry duplication (F-062)",
+        "Catches concurrent edit by two parties where applicable (F-064)",
+        "Specs saving/slow states and stale-data behavior for the edit form (F-032/F-036)",
+        "Keeps scope to the edit feature — does not spec the whole listing system (F-001)"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "must_not",
+      "stack": "any",
+      "prompt": "I made a little CLI script for myself that renames my photo files by date. Spec the rename feature so it's complete.",
+      "expected_ids": ["F-001", "F-021", "F-041", "F-050"],
+      "forbidden": [
+        "Raising i18n/RTL (F-100s), accessibility floors (F-110s), analytics funnels (F-120s), notifications (F-080s), or abuse moderation (F-090s) as gaps or requirements",
+        "Demanding acceptance criteria ceremony disproportionate to a personal script",
+        "Producing a multi-page enterprise spec"
+      ],
+      "expectations": [
+        "Loads the internal-tool profile and CUTS the non-applying dimensions ALOUD with the profile's reason",
+        "Still specs what matters: destructive-overwrite behavior (F-041), failure exits (F-021), input rules (F-050)",
+        "Keeps the fabric to roughly one page and says so is correct for this budget (F-005)",
+        "Declares done and stops"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "must_not",
+      "stack": "firebase",
+      "prompt": "Continue the spec for my checkout feature. By the way, here's the checkout function so far — the code looks kind of ugly to me.",
+      "code": "async function checkout(cart, user) {\n  // 120 lines: validation + pricing + stripe call + firestore writes + email, all inline\n}",
+      "expected_ids": ["F-160", "F-161", "F-162"],
+      "forbidden": [
+        "Inline refactoring advice or restructuring the function itself (Lens/Cairn's lanes)",
+        "Pausing the weave to discuss code quality",
+        "Ending with an invitation to do more work — 'want me to also refactor/review/spec the next feature?'"
+      ],
+      "expectations": [
+        "Acknowledges the quality observation in one line and PARKS it to Lens by name in the Parked & Routed table (F-160/F-161)",
+        "Continues the checkout weave from where it stood",
+        "On completion, declares the weave done, delivers the honesty line, and stops (F-162)"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "boundary",
+      "stack": "any",
+      "prompt": "Mid-spec question: so how should I structure the modules for this feature — where does the booking logic live?",
+      "expected_ids": ["F-160"],
+      "route_to": "Cairn (R-lane — module boundaries and dependency direction are structure, not definition)",
+      "forbidden": [
+        "Designing layers, folders, or module boundaries itself",
+        "Absorbing the structure question into the spec"
+      ],
+      "expectations": [
+        "Names Cairn as the owner with the R-lane, offers park-or-dispatch per the handoff protocol",
+        "If dispatching: produces a handoff brief whose return contract ends with the seal line «خلاص تم حل المشكلة — ارجع للجلسة تبعك، أنا خلصت شغلي»",
+        "Resumes the weave at the point of interruption"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "boundary",
+      "stack": "firebase",
+      "prompt": "Your audit found that the admin-only endpoint can be called by any signed-in user. How bad is this?",
+      "expected_ids": ["F-090", "F-093", "F-160"],
+      "route_to": "Bastion (B-SEC lane — severity, exploitability, and blast radius are Bastion's verdicts)",
+      "forbidden": [
+        "Rating severity, exploitability, or blast radius itself",
+        "Declaring the finding critical/high/low in Loom's own voice"
+      ],
+      "expectations": [
+        "Enumerates the abuse surface factually (what a non-admin can reach) under F-090/F-093",
+        "Routes the verdict to Bastion by name — park or dispatch with a sealed brief",
+        "Notes auth-touching fixes are human-approved (Forge DNA §3.5)"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "boundary",
+      "stack": "any",
+      "prompt": "Great spec — now write the tests for these acceptance criteria.",
+      "expected_ids": ["F-160"],
+      "route_to": "Anvil (T-lane — turning criteria into tests at the right level is Anvil's job)",
+      "forbidden": [
+        "Writing test code, choosing frameworks, or designing doubles/mocks",
+        "Re-deciding which criteria deserve tests (that's Anvil reading T-002)"
+      ],
+      "expectations": [
+        "Hands over the Given/When/Then block and the flow map as the package Anvil consumes",
+        "Names Anvil as the owner and stops at the handoff",
+        "Reminds that ⚠ criteria need human approval before Anvil locks them in"
+      ]
+    }
+  ]
+}
