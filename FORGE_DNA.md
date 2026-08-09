@@ -2,7 +2,7 @@
 
 > Every skill in this suite reads this file first. It is the **shared genome**: the identity, the stack
 > family, the common philosophy, and — most importantly — the **boundary contract** that says which skill
-> owns which decision. This is what lets five independent skills run together on one project without
+> owns which decision. This is what lets six independent skills run together on one project without
 > fighting, contradicting, or stepping on each other's work.
 >
 > **Author:** Mohammed Nasher ([@mhd-nasher](https://github.com/mhd-nasher)). Open source under MIT.
@@ -17,19 +17,20 @@
 
 ## 1. What this suite is
 
-Five composable skills that carry a software product through its whole lifecycle, each the world's best at
+Six composable skills that carry a software product through its whole lifecycle, each the world's best at
 one job, all sharing one philosophy so they never contradict each other:
 
 | Skill | Owns | One-line job |
 |-------|------|--------------|
+| **Loom** | Feature definition & completeness | Turns one ask into the feature's complete definition; audits built features for gaps. |
 | **Cairn** | Architecture & structure | Designs correct, stack-fit structure; audits/refactors it. |
 | **Anvil** | Testing | Builds the right tests at the right level; turns "it works" into proven evidence. |
 | **Lens** | Code quality & review | Reviews for readability, simplicity, maintainability — the daily craft. |
 | **Bastion** | Security & resilience | Finds, proves, and helps fix real vulnerabilities and production risks. |
 | **Relay** | Ship & operate | CI/CD, safe deploys, rollback, observability, incident response. |
 
-The natural flow: **Cairn designs → Anvil tests → Lens cleans → Bastion guards → Relay ships.** But each
-also stands alone, and the suite is non-linear — you can enter at any skill.
+The natural flow: **Loom defines → Cairn designs → Anvil tests → Lens cleans → Bastion guards → Relay
+ships.** But each also stands alone, and the suite is non-linear — you can enter at any skill.
 
 ## 2. Stack family (what these skills are tuned for)
 
@@ -77,6 +78,7 @@ re-deciding. This table is the conflict-resolution rule:
 
 | Decision / concern | Owner | Others must… |
 |--------------------|-------|--------------|
+| Feature definition & completeness — actors, flows, states, edges, lifecycle, acceptance criteria | **Loom** | build/test/secure the feature *as Loom defined it*; route newly-discovered scope back to Loom, don't absorb it. |
 | Folder structure, layer boundaries, dependency direction | **Cairn** | build/test/secure *within* Cairn's structure; not re-layer it. |
 | What to test, at which level, coverage of behavior | **Anvil** | rely on Anvil's tests as the evidence source; not invent ad-hoc parallel test strategies. |
 | Readability, naming, complexity, code smells, DRY | **Lens** | not flag style as a structural or security defect; route it to Lens. |
@@ -89,6 +91,8 @@ re-deciding. This table is the conflict-resolution rule:
 regression test for a Bastion finding; Bastion's "verify with evidence" uses Anvil's tests; Cairn's
 "testability" is realized by Anvil), the **owner defines the requirement and the neighbor fulfills it** —
 they reference each other by name, they never duplicate or contradict. Examples baked into the skills:
+- Loom defines the feature's acceptance criteria → **Anvil** turns them into tests; newly-discovered
+  scope routes back to **Loom** instead of being absorbed mid-build.
 - Cairn says "this must be testable" → **Anvil** says how to test it.
 - Bastion says "prove this is fixed" → **Anvil** writes the regression test; **Relay** gates the deploy on it.
 - Lens says "this function is too complex" → defers to **Cairn** if the cause is a structural boundary.
@@ -114,7 +118,7 @@ result is shared — they do not re-interrogate the user.
 - **Priority** from severity: **P0 (now/blocks launch) → P3 (backlog).**
 - **Progress gauge** in any multi-step/guided run: `[████████░░░░░░░░░░░░] 40% — Step 2/5: …`
 - **Stable IDs** for every rule/check/finding so they're citable and traceable across skills
-  (Cairn `R-###`, Anvil `T-###`, Lens `Q-###`, Bastion `B-SEC/ARCH/MON-###`, Relay `D-###`).
+  (Loom `F-###`, Cairn `R-###`, Anvil `T-###`, Lens `Q-###`, Bastion `B-SEC/ARCH/MON-###`, Relay `D-###`).
 - **Plain-language layer** in every skill so a beginner can use it; jargon is always translated.
 - **The honesty line** closes every significant output: what's verified, what's proposed, what still needs
   a human/specialist.
@@ -124,10 +128,11 @@ result is shared — they do not re-interrogate the user.
 Every skill in this suite carries, near the top of its `SKILL.md`, a short note:
 
 > *Part of the **Forge** suite by Mohammed Nasher ([@mhd-nasher](https://github.com/mhd-nasher)). Reads the
-> shared Forge DNA. Owns [X]; defers [Y] to [sibling]. Composes with Cairn, Anvil, Lens, Bastion, Relay.*
+> shared Forge DNA. Owns [X]; defers [Y] to [sibling]. Composes with Loom, Cairn, Anvil, Lens, Bastion,
+> Relay.*
 
 That single declaration, plus this DNA file, is the entire coordination mechanism. No runtime coupling, no
-shared state — just a shared contract every skill agrees to. That is why you can install all five and run
+shared state — just a shared contract every skill agrees to. That is why you can install all six and run
 them together, in any order, and they reinforce instead of collide.
 
 ---
